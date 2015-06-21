@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+	<context-param>
+		<param-name>contextparm</param-name>
+		<param-value>mushroom</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>contextparm1</param-name>
+		<param-value>mushroom1</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>contextparm2</param-name>
+		<param-value>mushroom2</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>contextparm3</param-name>
+		<param-value>mushroom3</param-value>
+	</context-param>
+	
+  <servlet>
+    <servlet-name>ServletDemo</servlet-name>
+    <servlet-class>cn.lnu.ServletDemo</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletDemo2</servlet-name>
+    <servlet-class>cn.lnu.ServletDemo2</servlet-class>
+    <init-param>
+    	<param-name>data1</param-name>
+    	<param-value>hello,data</param-value>
+    </init-param>
+    
+    <init-param>
+    	<param-name>data2</param-name>
+    	<param-value>dhafa</param-value>
+    </init-param>
+    
+    <init-param>
+    	<param-name>data3</param-name>
+    	<param-value>fagg</param-value>
+    </init-param>
+    
+    <init-param>
+    	<param-name>charset</param-name>
+    	<param-value>UTF-8</param-value>
+    </init-param>
+    
+    <init-param>
+    	<param-name>dburl</param-name>
+    	<param-value>jdbc:mysql://localhost:3306/test</param-value>
+    </init-param>
+    
+    <init-param>
+    	<param-name>username</param-name>
+    	<param-value>admin</param-value>
+    </init-param>
+    
+    <init-param>
+    	<param-name>passwd</param-name>
+    	<param-value>123456</param-value>
+    </init-param>
+    
+    <init-param>
+    	<param-name>congfig</param-name>
+    	<param-value>/structs-config.xml</param-value>
+    </init-param>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletDemo3</servlet-name>
+    <servlet-class>cn.lnu.ServletDemo3</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletDemo4</servlet-name>
+    <servlet-class>cn.lnu.ServletDemo4</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletDemo5</servlet-name>
+    <servlet-class>cn.lnu.ServletDemo5</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletDemo6</servlet-name>
+    <servlet-class>cn.lnu.ServletDemo6</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletDemo7</servlet-name>
+    <servlet-class>cn.lnu.ServletDemo7</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletDemo8</servlet-name>
+    <servlet-class>cn.lnu.ServletDemo8</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletDemo9</servlet-name>
+    <servlet-class>cn.lnu.ServletDemo9</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>ServletDemo</servlet-name>
+    <url-pattern>/servlet/ServletDemo</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo2</servlet-name>
+    <url-pattern>/servlet/ServletDemo2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo3</servlet-name>
+    <url-pattern>/servlet/ServletDemo3</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo4</servlet-name>
+    <url-pattern>/servlet/ServletDemo4</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo5</servlet-name>
+    <url-pattern>/servlet/ServletDemo5</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo6</servlet-name>
+    <url-pattern>/servlet/ServletDemo6</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo7</servlet-name>
+    <url-pattern>/servlet/ServletDemo7</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo8</servlet-name>
+    <url-pattern>/servlet/ServletDemo8</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo9</servlet-name>
+    <url-pattern>/servlet/ServletDemo9</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

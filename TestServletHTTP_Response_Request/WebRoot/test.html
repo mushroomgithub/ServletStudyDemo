@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>带数据给RequestDemo2</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+
+  </head>
+  
+  <body>
+    <!-- 用户通过以下几种方式带数据给服务器 ,url后跟的中文数据，需要编码之后再提交-->
+    <a href="/TestServletHTTP_Response_Request/servlet/RequestDemo2?username=mushroom&username=haha&password=123456">点</a>
+    
+    <form action="/TestServletHTTP_Response_Request/servlet/RequestDemo2" method="post">
+    	用户名1：<input type="text" name="username"><br/>
+    	用户名2：<input type="text" name="username"><br/>
+    	密&nbsp;码：<input type="password" name="password"><br/>
+    	<input type="submit" value="提交">
+    </form>
+  </body>
+</html>
