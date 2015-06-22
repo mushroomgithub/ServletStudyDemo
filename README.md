@@ -8,8 +8,7 @@ Servlet/request/response/cookie/session Demo
 
 ###MVC设计模式在Web开发的使用方式
 
-MVC (model(可以看做javaBean) view(可以看做jsp) controller（可以看做Servlet）)
--------------------------------------------------------------------------------
+**MVC (model(可以看做javaBean) view(可以看做jsp) controller（可以看做Servlet))**
 
     >>> 客户端浏览器向服务器发送请求，servlet(Controller)这个控制器收到请求产生数据
     >>> 然后将产生的数据使用javaBean这个Model来封装然而servlet控制器并不适合做输出，因此将封装数据写给response域
