@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>form.html</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+    <!-- 采用js方法防止表单重复提交 ,但是一般不这么做防不住别人恶意重复提交,，还需要在服务器端防止重复提交-->
+	<script type="text/javascript">
+	
+	var isCommitted=false;
+	function doCommit(){
+		if(!isCommitted){
+			isCommitted=true;
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	/*
+	function doCommit(){
+		var submit=document.getElementById("submit");
+		submit.disabled='disabled';
+		return true;
+	}*/
+	
+	</script>
+  </head>
+  
+  <body>
+  
+     <form action="/TestServletHTTP_Cookie_Session/servlet/DoFormServlet" method="post" onsubmit="return doCommit()">
+    	用户名：<input type="text" name="username"><br/>
+    	
+    	<input type="submit" id="submit" value="提交">
+    </form>
+  </body>
+</html>

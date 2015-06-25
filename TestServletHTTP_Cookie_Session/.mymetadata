@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="TestServletHTTP_Cookie_Session"
+  id="myeclipse.1434887942601"
+  context-root="/TestServletHTTP_Cookie_Session"
+  j2ee-spec="1.4"
+  archive="TestServletHTTP_Cookie_Session.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
