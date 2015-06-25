@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>div定位技术对div绝对定位</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<style>
+	
+		#father{
+			background-color:blue;
+			width:100%;
+			height:100px;
+			border:1px solid red;
+			position:relative;/*若想让son1相对于自己绝对定位，必须给自己设置相对定位*/
+		}
+		/*由于son1的所有父标签设置相对定位，所以这里的绝对定位是相对于父div的绝对定位,此时son1就也脱离了文档里，它的原来位置被son2顶替*/
+		#son1{
+			position:absolute;	/*相对于father Div定位*/
+			right:0px;
+		}
+		#son2{
+			background-color:yellow;
+		}
+		#son3{
+			background-color:red;
+		}
+	</style>
+  </head>
+  
+  <body>
+   	<div id="father">
+   		<div id="son1">mushmushmushmushmushmushmush</div>
+   		<div id="son2">roomroomroomroomroomroomroom</div>
+   		<div id="son3">fagagagagaggagagagagagagagga</div>
+   	</div>
+  </body>
+</html>

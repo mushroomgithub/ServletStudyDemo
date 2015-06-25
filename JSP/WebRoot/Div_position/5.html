@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>div定位技术对div绝对定位</title>
+	
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<style type="text/css">
+	
+		#father{
+			background-color:yellow;
+			width:100%;
+			height:100px;
+			border:1px solid red;
+		}
+		#son1,#son2,#son3{
+			background-color:green;
+			width:100px;
+			margin-left:5px;
+			margin-top:5px;
+			display:inline;	/*三个div显示成一行*/
+		}
+		
+		#son3{
+			display:none;/*第三个隐藏*/
+		}
+		
+		/*鼠标移动到上方，改变div背景色*/
+		#son2:hover{	
+			background-color:blue;
+			cursor:hand;
+		}
+		
+		
+	</style>
+  </head>
+  
+  <body>
+   	<div id="father">
+   		<div id="son1">mushmushmushmushmushmushmush</div>
+   		<div id="son2">roomroomroomroomroomroomroom</div>
+   		<div id="son3">fagagagagaggagagagagagagagga</div>
+   	</div>
+  </body>
+</html>
