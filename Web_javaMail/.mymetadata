@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Web_javaMail"
+  id="myeclipse.1436958682676"
+  context-root="/Web_javaMail"
+  j2ee-spec="1.4"
+  archive="Web_javaMail.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+
