@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<form-beans>
+		<form-bean name="registerForm" type="cn.lnu.web.formbean.RegisterBean"></form-bean>
+		
+		<form-bean name="register2Form" type="org.apache.struts.action.DynaActionForm">
+			<form-property name="username" type="java.lang.String"></form-property>
+			<form-property name="password" type="java.lang.String"></form-property>
+			<form-property name="email" type="java.lang.String"></form-property>
+		</form-bean>
+		
+	</form-beans>
+	
+	<action-mappings> <!-- structs在调用这个RegisterAction的时候会将这个action标签中的配置信息封装成一个actionmapping 对象传递给RegisterAction-->
+		<action path="/register" 
+				name="registerForm"
+				scope="request"
+				type="cn.lnu.web.action.RegisterAction" 
+				input="/WEB-INF/jsp/register.jsp"
+				validate="true">
+			<forward name="message" path="/message.jsp"/>
+		</action>
+		
+		<!--  
+		<action path="/registerUI" forward="/WEB-INF/jsp/register.jsp"></action>
+		-->
+		
+		<!-- 为了防止表单重复提交，就不要使用上面的直接forward到一个jsp，而是去找一个action -->
+		<action path="/registerUI" type="cn.lnu.web.action.RegisterUIAction">
+			<forward name="registerUI" path="/WEB-INF/jsp/register.jsp"></forward>
+		</action>	
+		<action path="/error" unknown="true" forward="/WEB-INF/jsp/errors.jsp"></action>
+		
+		<!--第一种四个超链接找一个action,找的action继承自DispatchAction-->
+		<action path="/bookAction" type="cn.lnu.web.action.bookAction" parameter="method"></action>
+		
+		<!-- 第二种四个超链接找一个action(更直观)，但是会导致配置文件很臃肿，找的action继承自MappingDispatchAction-->
+		<action path="/addBook" type="cn.lnu.web.action.bookAction2" parameter="add"></action>
+		<action path="/updateBook" type="cn.lnu.web.action.bookAction2" parameter="update"></action>
+		<action path="/findBook" type="cn.lnu.web.action.bookAction2" parameter="find"></action>
+		<action path="/deleteBook" type="cn.lnu.web.action.bookAction2" parameter="delete"></action>
+	
+		<action path="/register2" name="register2Form" type="cn.lnu.web.action.RegisterAction2"></action>
+	</action-mappings>
+	
+	
+	<controller processorClass="org.apache.struts.action.RequestProcessor"></controller>
+	<message-resources parameter="MessageResource"></message-resources>
+</struts-config>
+
