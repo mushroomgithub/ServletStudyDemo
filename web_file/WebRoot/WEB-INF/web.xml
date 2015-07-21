@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  <servlet>
+    <servlet-name>UploadServlet</servlet-name>
+    <servlet-class>cn.lnu.web.servlet.UploadServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UploadServlet2</servlet-name>
+    <servlet-class>cn.lnu.web.servlet.UploadServlet2</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ListFileServlet</servlet-name>
+    <servlet-class>cn.lnu.web.servlet.ListFileServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DownloadServlet</servlet-name>
+    <servlet-class>cn.lnu.web.servlet.DownloadServlet</servlet-class>
+  </servlet>
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>UploadServlet</servlet-name>
+    <url-pattern>/servlet/UploadServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UploadServlet2</servlet-name>
+    <url-pattern>/servlet/UploadServlet2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListFileServlet</servlet-name>
+    <url-pattern>/servlet/ListFileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DownloadServlet</servlet-name>
+    <url-pattern>/servlet/DownloadServlet</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
