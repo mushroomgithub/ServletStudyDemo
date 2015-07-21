@@ -1,0 +1,19 @@
+/*管理机界面类选择器*/
+body{
+	width:980px;
+	/*border:1px solid green;*/
+	text-align: center;
+}
+
+.style1{
+	color:red;
+	text-align: center;
+}
+
+.style2{
+	text-align: center;
+}
+
+.style3 span{
+	color:red;
+}
