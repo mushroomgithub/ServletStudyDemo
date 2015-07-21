@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+	<!--  
+	<filter>
+		<filter-name>FilterDemo1</filter-name>
+		<filter-class>cn.lnu.web.filter.FilterDemo1</filter-class>
+	-->
+		<!-- 如果有些配置你不希望在程序中写死可以在此处配置，服务器启动时，会将其封装到一个FilterConfig对象中去 -->
+	<!-- 
+		<init-param>
+			<param-name>mushroom</param-name>
+			<param-value>喜欢编程！</param-value>
+		</init-param>
+		
+		<init-param>
+			<param-name>xxx</param-name>
+			<param-value>dada</param-value>
+		</init-param>
+	</filter>
+	
+	<filter>
+		<filter-name>FilterDemo2</filter-name>
+		<filter-class>cn.lnu.web.filter.FilterDemo2</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>FilterDemo1</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>FilterDemo2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	-->
+	
+ <filter>
+ 	<filter-name>CharacterEncodingFilter</filter-name>
+ 	<filter-class>cn.lnu.web.filter.example.CharacterEncodingFilter</filter-class>
+	<init-param>
+		<param-name>charset</param-name>
+		<param-value>UTF-8</param-value>
+	</init-param>
+ </filter>
+	
+	<filter>
+		<filter-name>NoCacheFilter</filter-name>
+		<filter-class>cn.lnu.web.filter.example.NoCacheFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>CacheFilter</filter-name>
+		<filter-class>cn.lnu.web.filter.example.CacheFilter</filter-class>
+			<init-param>
+				<param-name>bmp</param-name>
+				<param-value>1</param-value>
+			</init-param>
+			
+			<init-param>
+				<param-name>css</param-name>
+				<param-value>30</param-value>
+			</init-param>
+			<init-param>
+				<param-name>js</param-name>
+				<param-value>20</param-value>
+			</init-param>
+	</filter>
+	
+	<filter>
+		<filter-name>AutoLoginFilter</filter-name>
+		<filter-class>cn.lnu.web.filter.example.AutoLoginFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>CharacterEncodingFilter2</filter-name>
+		<filter-class>cn.lnu.web.filter.example.CharacterEncodingFilter2</filter-class>
+	</filter>
+	<!-- 真正解决全站乱码的过滤器 -->
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>HtmlFilter</filter-name>
+		<filter-class>cn.lnu.web.filter.example.HtmlFilter</filter-class>
+	</filter>
+	
+	<!-- 对拦截到数据进行转义的过滤器 -->
+	
+	<filter-mapping>
+		<filter-name>HtmlFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 拦截全站的jsp页面，让其不缓存数据 -->
+	<filter-mapping>
+		<filter-name>NoCacheFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+		<dispatcher>FORWARD</dispatcher><!-- 表示指定以什么方式访问jsp资源时，这个拦截器会生效 -->
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	
+	<!-- 拦截全站的所有，让其不缓存数据 -->
+	<filter-mapping>
+		<filter-name>CacheFilter</filter-name>
+		<url-pattern>*.bmp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheFilter</filter-name>
+		<url-pattern>*.css</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>CacheFilter</filter-name>
+		<url-pattern>*.js</url-pattern>
+	</filter-mapping>
+	
+	<!-- 这个自动登录的过滤器拦截所有的用户请求，不论用户是什么请求，都需要经过这个过滤器，只要检测到用户带cookie过来了，就实现让用户自动登录 -->
+	<filter-mapping>
+		<filter-name>AutoLoginFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  <servlet>
+    <servlet-name>ServletDemo1</servlet-name>
+    <servlet-class>cn.lnu.web.servlet.ServletDemo1</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>cn.lnu.web.servlet.LoginServlet</servlet-class>
+  </servlet>
+
+
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+  <servlet-mapping>
+    <servlet-name>ServletDemo1</servlet-name>
+    <url-pattern>/servlet/ServletDemo1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/servlet/LoginServlet</url-pattern>
+  </servlet-mapping>
+  
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
