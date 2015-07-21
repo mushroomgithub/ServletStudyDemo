@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+	<filter>
+		<filter-name>CharacterEncodingFilter2</filter-name>
+		<filter-class>cn.lnu.web.filter.CharacterEncodingFilter2</filter-class>
+	</filter>
+	<!-- 检查用户的请求数据中有没有敏感词汇 -->
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>wordsFilter</filter-name>
+		<filter-class>cn.lnu.web.filter.wordsFilter</filter-class>
+	</filter>
+	<!-- 检查用户的请求数据中有没有敏感词汇 -->
+	<filter-mapping>
+		<filter-name>wordsFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!-- 实现全站压缩，这样返回给浏览器的数据都是压缩之后的数据，节省服务器带宽 -->
+	<filter>
+		<filter-name>GzipFilter</filter-name>
+		<filter-class>cn.lnu.web.filter.GzipFilter</filter-class>
+	</filter>
+	<!-- 只拦截jsp html js css等资源压缩之后返回效率最高，一般不要控制其去拦截二进制文件图片，电影之类的文件，压缩这类文件容易导致内存溢出 -->
+	<filter-mapping>
+		<filter-name>GzipFilter</filter-name>
+		<url-pattern>*.jsp</url-pattern>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>GzipFilter</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>GzipFilter</filter-name>
+		<url-pattern>*.js</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>GzipFilter</filter-name>
+		<url-pattern>*.css</url-pattern>
+	</filter-mapping>
+	
+	<filter>
+		<filter-name>WebCacheFilter</filter-name>
+		<filter-class>cn.lnu.web.filter.WebCacheFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>WebCacheFilter</filter-name>
+		<url-pattern>/servlet/ServletDemo4</url-pattern>
+	</filter-mapping>
+  <servlet>
+    <servlet-name>ServletDemo1</servlet-name>
+    <servlet-class>cn.lnu.web.servlet.ServletDemo1</servlet-class>
+  </servlet>
+
+	<servlet>
+    <servlet-name>ServletDemo2</servlet-name>
+    <servlet-class>cn.lnu.web.servlet.ServletDemo2</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>ServletDemo3</servlet-name>
+    <servlet-class>cn.lnu.web.servlet.ServletDemo3</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ServletDemo4</servlet-name>
+    <servlet-class>cn.lnu.web.servlet.ServletDemo4</servlet-class>
+  </servlet>
+
+
+  
+  <servlet-mapping>
+    <servlet-name>ServletDemo1</servlet-name>
+    <url-pattern>/servlet/ServletDemo1</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>ServletDemo2</servlet-name>
+    <url-pattern>/servlet/ServletDemo2</url-pattern>
+ 	 </servlet-mapping>
+ 	 
+  <servlet-mapping>
+    <servlet-name>ServletDemo3</servlet-name>
+    <url-pattern>/servlet/ServletDemo3</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ServletDemo4</servlet-name>
+    <url-pattern>/servlet/ServletDemo4</url-pattern>
+  </servlet-mapping>
+
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
