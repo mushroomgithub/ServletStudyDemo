@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="Servlet_listener"
+  id="myeclipse.1435920521451"
+  context-root="/Servlet_listener"
+  j2ee-spec="1.4"
+  archive="Servlet_listener.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

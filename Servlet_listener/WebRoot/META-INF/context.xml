@@ -1,0 +1,6 @@
+<!-- 在META-INF中的配置相当于是对你这个web应用Servlet_listener的配置,配置是一分钟内session没人用，bean就随着session钝化到磁盘的lnuDir目录下 -->
+<Context>
+	<Manager className="org.apache.catalina.session.PersistentManager" maxIdleSwap="1">
+		<Store className="org.apache.catalina.session.FileStore" directory="lnuDir"/>
+	</Manager>
+</Context>

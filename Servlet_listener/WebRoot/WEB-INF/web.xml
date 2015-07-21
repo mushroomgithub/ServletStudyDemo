@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	 
+	<listener>
+		<display-name>MyServletContextListener</display-name>
+		<listener-class>cn.lnu.web.listener.MyServletContextListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>cn.lnu.web.listener.MyHttpSessionListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>cn.lnu.web.listener.MyServletRequestListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>cn.lnu.web.listener.example.coutNumListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>cn.lnu.web.listener.example.SessionScannerListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>cn.lnu.web.listener.example.SendMailTimer</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>cn.lnu.web.listener.MyServletContextAttributeListener</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>cn.lnu.web.listener.HttpSessionAndServletRequestAttributeListener</listener-class>
+	</listener>
+	
+	<!--  配置session一分钟后失效 -->
+	<!-- 
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
+	-->
+	
+  <servlet>
+    <servlet-name>ServletDemo1</servlet-name>
+    <servlet-class>cn.lnu.web.servlet.ServletDemo1</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>ServletDemo1</servlet-name>
+    <url-pattern>/servlet/ServletDemo1</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
