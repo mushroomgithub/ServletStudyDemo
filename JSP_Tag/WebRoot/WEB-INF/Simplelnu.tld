@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    <description>A tag library exercising SimpleTag handlers.</description>
+    <tlib-version>1.0</tlib-version>
+    <short-name>lnu</short-name>
+    <uri>/simpletag</uri>
+    
+    <!-- 简单标签有标签体的话，不能写成JSP，而是写成scriptless表示JSP中不能有java脚本代码 -->
+    <tag>
+        <name>demo1</name>
+		<tag-class>cn.lnu.simpletag.SimpleTagDemo1</tag-class>
+		<body-content>scriptless</body-content> 
+    </tag>
+    
+    
+    <tag>
+        <name>demo2</name>
+		<tag-class>cn.lnu.simpletag.SimpleTagDemo2</tag-class>
+		<body-content>scriptless</body-content> 
+    </tag>
+    
+    <tag>
+        <name>demo3</name>
+		<tag-class>cn.lnu.simpletag.SimpleTagDemo3</tag-class>
+		<body-content>scriptless</body-content> 
+    </tag>
+    
+    
+    <tag>
+        <name>demo4</name>
+		<tag-class>cn.lnu.simpletag.SimpleTagDemo4</tag-class>
+		<body-content>empty</body-content> 
+    </tag>
+    
+    <!--给标签定义属性时，需要在tld文件中描述该属性，其中 <rtexprvalue>一定要为true，表示该属性值不仅可以接受字符串还可以接受el表达式和脚本表达式 -->
+    <tag>
+        <name>demo5</name>
+		<tag-class>cn.lnu.simpletag.SimpleTagDemo5</tag-class>
+		<body-content>scriptless</body-content> 
+		
+		<attribute>
+			<name>count</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<attribute>
+			<name>date</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+    </tag>
+    </taglib>
