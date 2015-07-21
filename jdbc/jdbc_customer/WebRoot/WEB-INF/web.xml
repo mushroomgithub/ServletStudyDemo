@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+  <servlet>
+    <servlet-name>AddCustomerServlet</servlet-name>
+    <servlet-class>cn.lnu.web.controller.AddCustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ListCustomerServlet</servlet-name>
+    <servlet-class>cn.lnu.web.controller.ListCustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>EditCustomerServlet</servlet-name>
+    <servlet-class>cn.lnu.web.controller.EditCustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DelCustomerServlet</servlet-name>
+    <servlet-class>cn.lnu.web.controller.DelCustomerServlet</servlet-class>
+  </servlet>
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>AddCustomerServlet</servlet-name>
+    <url-pattern>/servlet/AddCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListCustomerServlet</servlet-name>
+    <url-pattern>/servlet/ListCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EditCustomerServlet</servlet-name>
+    <url-pattern>/servlet/EditCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DelCustomerServlet</servlet-name>
+    <url-pattern>/servlet/DelCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

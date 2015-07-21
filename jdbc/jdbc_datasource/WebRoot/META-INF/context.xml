@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<!-- 把创建的tomcat创建的datasource连接池绑定到源名jdbc/EmployeeDB的JNDI资源上， 创建者Container（Web服务器）根据web应用的context配置创建这个连接池 -->
+	<Resource name="jdbc/EmployeeDB" auth="Container"
+            type="javax.sql.DataSource"
+            username="root"
+            password="root"
+            driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://localhost:3306/jdbc_customer"
+            initialSize="10"
+            maxActive="30"
+            maxIdle="4"/>
+</Context>
