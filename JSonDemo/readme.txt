@@ -1,8 +1,8 @@
-//Êı¾İ¿âºÍ±íÉè¼Æ£º
+//æ•°æ®åº“å’Œè¡¨è®¾è®¡ï¼š
 create database dbXFFS character set utf8 collate utf8_general_ci;
 use dbXFFS;
 
-//ÓÃ»§±íÉè¼Æ
+//ç”¨æˆ·è¡¨è®¾è®¡
 create table users
 (
 	id varchar(40) primary key,
@@ -13,7 +13,7 @@ create table users
 insert into users(id,username,password) values('1','admin','admin');
 insert into users(id,username,password) values('2','mushroom','123456');
 
-//Ö÷½çÃæ±íÉè¼Æ
+//ä¸»ç•Œé¢è¡¨è®¾è®¡
 create table mainface
 (
 	id varchar(40) primary key,
@@ -21,13 +21,13 @@ create table mainface
 	btnid varchar(40) not null
 );
 ALTER TABLE mainface ADD unique('btnid');
-insert into mainface(id,btnname,btnid) values ('01','»ù±¾ÉúÃüÖ§³Ö','1000');
-insert into mainface(id,btnname,btnid) values ('02','»ù±¾ÉúÃüÖ§³ÖÑµÁ·','1004');
-insert into mainface(id,btnname,btnid) values ('03','»ù±¾ÉúÃüÖ§³ÖÄ£Äâ¿¼ºËÑµÁ·','1005');
-insert into mainface(id,btnname,btnid) values ('04','»ù±¾ÉúÃüÖ§³Ö¿¼ºË','1006');
-insert into mainface(id,btnname,btnid) values ('05','ĞÄ·Î¸´ËÕ¾ºÈü','1007');
+insert into mainface(id,btnname,btnid) values ('01','åŸºæœ¬ç”Ÿå‘½æ”¯æŒ','1000');
+insert into mainface(id,btnname,btnid) values ('02','åŸºæœ¬ç”Ÿå‘½æ”¯æŒè®­ç»ƒ','1004');
+insert into mainface(id,btnname,btnid) values ('03','åŸºæœ¬ç”Ÿå‘½æ”¯æŒæ¨¡æ‹Ÿè€ƒæ ¸è®­ç»ƒ','1005');
+insert into mainface(id,btnname,btnid) values ('04','åŸºæœ¬ç”Ÿå‘½æ”¯æŒè€ƒæ ¸','1006');
+insert into mainface(id,btnname,btnid) values ('05','å¿ƒè‚ºå¤è‹ç«èµ›','1007');
 
-//»ù±¾ÉúÃüÖ§³Ö(01)
+//åŸºæœ¬ç”Ÿå‘½æ”¯æŒ(01)
 create table bls
 (
 	id varchar(40) primary key,
@@ -35,15 +35,15 @@ create table bls
 	btnid varchar(40) not null unique
 );
 
-insert into bls(id,btnname,btnid) values ('011','½²½â','5');
-insert into bls(id,btnname,btnid) values ('012','ÏòÇ°','8');
-insert into bls(id,btnname,btnid) values ('013','Ïòºó','9');
-insert into bls(id,btnname,btnid) values ('014','ÉÏ¼¶²Ëµ¥','7');
-insert into bls(id,btnname,btnid) values ('015','Ö÷²Ëµ¥','6');
-insert into bls(id,btnname,btnid) values ('016','¿ØÖÆÌ¨','10');
-insert into bls(id,btnname,btnid) values ('017','¹Ø±Õ','3');
+insert into bls(id,btnname,btnid) values ('011','è®²è§£','5');
+insert into bls(id,btnname,btnid) values ('012','å‘å‰','8');
+insert into bls(id,btnname,btnid) values ('013','å‘å','9');
+insert into bls(id,btnname,btnid) values ('014','ä¸Šçº§èœå•','7');
+insert into bls(id,btnname,btnid) values ('015','ä¸»èœå•','6');
+insert into bls(id,btnname,btnid) values ('016','æ§åˆ¶å°','10');
+insert into bls(id,btnname,btnid) values ('017','å…³é—­','3');
 
-//»ù±¾ÉúÃüÖ§³ÖÑµÁ·£¨02£©
+//åŸºæœ¬ç”Ÿå‘½æ”¯æŒè®­ç»ƒï¼ˆ02ï¼‰
 create table blse
 (
 	id varchar(40) primary key,
@@ -51,13 +51,13 @@ create table blse
 	btnid varchar(40) not null unique
 );
 
-insert into blse(id,btnname,btnid) values ('021','¿ªÊ¼ÑµÁ·','204');
-insert into blse(id,btnname,btnid) values ('022','¸´Î»','205');
-insert into blse(id,btnname,btnid) values ('023','¼ÇÒä»Ø·Å','206');
-insert into blse(id,btnname,btnid) values ('024','Í£Ö¹»Ø·Å','209');
-insert into blse(id,btnname,btnid) values ('025','¹Ø±Õ','203');
+insert into blse(id,btnname,btnid) values ('021','å¼€å§‹è®­ç»ƒ','204');
+insert into blse(id,btnname,btnid) values ('022','å¤ä½','205');
+insert into blse(id,btnname,btnid) values ('023','è®°å¿†å›æ”¾','206');
+insert into blse(id,btnname,btnid) values ('024','åœæ­¢å›æ”¾','209');
+insert into blse(id,btnname,btnid) values ('025','å…³é—­','203');
 
-//»ù±¾ÉúÃüÖ§³ÖÄ£Äâ¿¼ºËÑµÁ·(03)
+//åŸºæœ¬ç”Ÿå‘½æ”¯æŒæ¨¡æ‹Ÿè€ƒæ ¸è®­ç»ƒ(03)
 create table blsmnkhe
 (
 	id varchar(40) primary key,
@@ -65,15 +65,15 @@ create table blsmnkhe
 	btnid varchar(40) not null unique
 );
 
-insert into blsmnkhe(id,btnname,btnid) values ('031','¿ªÊ¼¿¼ºË','204');
-insert into blsmnkhe(id,btnname,btnid) values ('032','½»¾í','205');
-insert into blsmnkhe(id,btnname,btnid) values ('033','¹ú¼ÊĞÂ±ê×¼','206');
-insert into blsmnkhe(id,btnname,btnid) values ('034','×Ô¶¨Òå±ê×¼','207');
-insert into blsmnkhe(id,btnname,btnid) values ('035','¼ÇÒä»Ø·Å','208');
-insert into blsmnkhe(id,btnname,btnid) values ('036','Í£Ö¹»Ø·Å','209');
-insert into blsmnkhe(id,btnname,btnid) values ('037','¹Ø±Õ','210');
+insert into blsmnkhe(id,btnname,btnid) values ('031','å¼€å§‹è€ƒæ ¸','204');
+insert into blsmnkhe(id,btnname,btnid) values ('032','äº¤å·','205');
+insert into blsmnkhe(id,btnname,btnid) values ('033','å›½é™…æ–°æ ‡å‡†','206');
+insert into blsmnkhe(id,btnname,btnid) values ('034','è‡ªå®šä¹‰æ ‡å‡†','207');
+insert into blsmnkhe(id,btnname,btnid) values ('035','è®°å¿†å›æ”¾','208');
+insert into blsmnkhe(id,btnname,btnid) values ('036','åœæ­¢å›æ”¾','209');
+insert into blsmnkhe(id,btnname,btnid) values ('037','å…³é—­','210');
 
-//»ù±¾ÉúÃüÖ§³Ö¿¼ºË(04)
+//åŸºæœ¬ç”Ÿå‘½æ”¯æŒè€ƒæ ¸(04)
 create table blskh
 (
 	id varchar(40) primary key,
@@ -81,15 +81,15 @@ create table blskh
 	btnid varchar(40) not null unique
 );
 
-insert into blskh(id,btnname,btnid) values ('041','¿ªÊ¼¿¼ºË','404');
-insert into blskh(id,btnname,btnid) values ('042','½»¾í','405');
-insert into blskh(id,btnname,btnid) values ('043','¹ú¼ÊĞÂ±ê×¼','407');
-insert into blskh(id,btnname,btnid) values ('044','×Ô¶¨Òå±ê×¼,'408');
-insert into blskh(id,btnname,btnid) values ('045','¼ÇÒä»Ø·Å','409');
-insert into blskh(id,btnname,btnid) values ('046','Í£Ö¹»Ø·Å','410');
-insert into blskh(id,btnname,btnid) values ('047','¹Ø±Õ','403');
+insert into blskh(id,btnname,btnid) values ('041','å¼€å§‹è€ƒæ ¸','404');
+insert into blskh(id,btnname,btnid) values ('042','äº¤å·','405');
+insert into blskh(id,btnname,btnid) values ('043','å›½é™…æ–°æ ‡å‡†','407');
+insert into blskh(id,btnname,btnid) values ('044','è‡ªå®šä¹‰æ ‡å‡†,'408');
+insert into blskh(id,btnname,btnid) values ('045','è®°å¿†å›æ”¾','409');
+insert into blskh(id,btnname,btnid) values ('046','åœæ­¢å›æ”¾','410');
+insert into blskh(id,btnname,btnid) values ('047','å…³é—­','403');
 
-//½»¾í£¨042£©
+//äº¤å·ï¼ˆ042ï¼‰
 create table blskh042
 (
 	id varchar(40) primary key,
@@ -97,11 +97,11 @@ create table blskh042
 	btnid varchar(40) not null unique
 );
 
-insert into blskh042(id,btnname,btnid) values ('0421','±£´æ','323');
-insert into blskh042(id,btnname,btnid) values ('0422','¹Ø±Õ','324');
+insert into blskh042(id,btnname,btnid) values ('0421','ä¿å­˜','323');
+insert into blskh042(id,btnname,btnid) values ('0422','å…³é—­','324');
 
 
-//¹ú¼ÊĞÂ±ê×¼£¨043£©
+//å›½é™…æ–°æ ‡å‡†ï¼ˆ043ï¼‰
 create table blskh043
 (
 	id varchar(40) primary key,
@@ -109,9 +109,9 @@ create table blskh043
 	btnid varchar(40) not null unique
 );
 
-insert into blskh043(id,btnname,btnid) values ('0431','È·¶¨','313');
+insert into blskh043(id,btnname,btnid) values ('0431','ç¡®å®š','313');
 
-//×Ô¶¨Òå±ê×¼(044)
+//è‡ªå®šä¹‰æ ‡å‡†(044)
 create table blskh044
 (
 	id varchar(40) primary key,
@@ -119,12 +119,12 @@ create table blskh044
 	btnid varchar(40) not null unique
 );
 
-insert into blskh044(id,btnname,btnid) values ('0441','±£´æ','318');
-insert into blskh044(id,btnname,btnid) values ('0442','È¡Ïû','319');
+insert into blskh044(id,btnname,btnid) values ('0441','ä¿å­˜','318');
+insert into blskh044(id,btnname,btnid) values ('0442','å–æ¶ˆ','319');
 
-//ĞÄ·Î¸´ËÕ¾ºÈü(05)
+//å¿ƒè‚ºå¤è‹ç«èµ›(05)
 
-//ĞÄ·Î¸´ËÕÒ³Ãæ1±íÉè¼Æ
+//å¿ƒè‚ºå¤è‹é¡µé¢1è¡¨è®¾è®¡
 create table xffsface1
 (
 	id varchar(40) primary key,
@@ -132,10 +132,10 @@ create table xffsface1
 	btnid varchar(40) not null unique
 );
 
-insert into xffsface1(id,btnname,btnid) values ('11','¿ªÊ¼','506');
-insert into xffsface1(id,btnname,btnid) values ('12','·µ»Ø','504');
+insert into xffsface1(id,btnname,btnid) values ('11','å¼€å§‹','506');
+insert into xffsface1(id,btnname,btnid) values ('12','è¿”å›','504');
 
-//ĞÄ·Î¸´ËÕÒ³Ãæ2±íÉè¼Æ
+//å¿ƒè‚ºå¤è‹é¡µé¢2è¡¨è®¾è®¡
 create table xffsface2
 (
 	id varchar(40) primary key,
@@ -143,13 +143,13 @@ create table xffsface2
 	btnid varchar(40) not null unique
 );
 
-insert into xffsface2(id,btnname,btnid) values ('21','½»¾í','405');
-insert into xffsface2(id,btnname,btnid) values ('22','·µ»Ø','424');
-insert into xffsface2(id,btnname,btnid) values ('23','¹ú¼ÊĞÂ±ê×¼','407');
-insert into xffsface2(id,btnname,btnid) values ('24','¼ÇÒä»Ø·Å','409');
-insert into xffsface2(id,btnname,btnid) values ('25','Í£Ö¹»Ø·Å','410');
+insert into xffsface2(id,btnname,btnid) values ('21','äº¤å·','405');
+insert into xffsface2(id,btnname,btnid) values ('22','è¿”å›','424');
+insert into xffsface2(id,btnname,btnid) values ('23','å›½é™…æ–°æ ‡å‡†','407');
+insert into xffsface2(id,btnname,btnid) values ('24','è®°å¿†å›æ”¾','409');
+insert into xffsface2(id,btnname,btnid) values ('25','åœæ­¢å›æ”¾','410');
 
-//ĞÄ·Î¸´ËÕÒ³Ãæ3±íÉè¼Æ
+//å¿ƒè‚ºå¤è‹é¡µé¢3è¡¨è®¾è®¡
 create table xffsface3
 (
 	id varchar(40) primary key,
@@ -157,4 +157,6 @@ create table xffsface3
 	btnid varchar(40) not null unique
 );
 
-insert into xffsface3(id,btnname,btnid) values ('31','È·¶¨','313');
+insert into xffsface3(id,btnname,btnid) values ('31','ç¡®å®š','313');
+
+#åŸºäºwebçš„åŒ»ç–—æ¨¡æ‹Ÿäººç³»ç»Ÿæ•°æ®åº“è®¾è®¡
