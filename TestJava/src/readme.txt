@@ -1,41 +1,41 @@
-Java�����̣�
-1��UDP�����������ӣ����ɿ����ٶȿ죩,----���Ͷ��𣬽��նˣ�����ʹ��DatagramSocket��DatagramPacket�����ݰ�������ͨ��
-2��UDP���������cn.lnu.net.udp.example����
-3��TCP(�������ӣ��ɿ��������ٶ�����)---��������ʹ��ServerSocket���ͻ���ʹ��Socket,˫��ͨ����������֮���Socket��IO������ͨ��
-	�ļ��ϴ��Լ�ͼƬ�ϴ������⣺��ʱ�򣬻�������˵ȴ��������˵��������ʽ�ķ�����
-�������һ���ͻ������ý�����ǣ�����������Ƿ��͸��������ˣ����������жϽ�����������������ݹ���
-��������ʹ��Socket�Դ��ķ���shutdown���÷����ڲ����ڿͻ��˷����������֮����������˷���һ��������ǣ��������˻��Զ��ж������ǽ����������ݹ���
-������Ҫ�����ֶ��жϱ�ǽ�����
-4��webԭ������������ �� 	Server��;�����õĿͻ������󶼷�װ��һ�������߳�������
+Java网络编程：
+1，UDP（面向无连接，不可靠，速度快）,----发送端吗，接收端，都是使用DatagramSocket和DatagramPacket（数据包）进行通信
+2，UDP聊天程序，在cn.lnu.net.udp.example包中
+3，TCP(面向连接，可靠，但是速度略慢)---服务器端使用ServerSocket，客户端使用Socket,双方通过建立连接之后的Socket的IO流进行通信
+	文件上传以及图片上传，问题：有时候，会出现两端等待的情况，说明有阻塞式的方法。
+解决方法一：客户端设置结束标记，并将结束标记发送给服务器端，服务器端判断结束标记来结束收数据过程
+方法二，使用Socket自带的方法shutdown，该方法内部会在客户端发送数据完毕之后，向服务器端发送一个结束标记，服务器端会自动判断这个标记结束结束数据过程
+不再需要我们手动判断标记结束。
+4，web原理：并发访问 。 	Server端;将来访的客户端请求都封装到一个单独线程任务中
 
-	//����˶���
+	//服务端对象
 		ServerSocket ss=new ServerSocket(10006);
 		while(true){
-			Socket s=ss.accept();//ÿ��accept����һ���ͻ�������Ȼ�����洴��һ���̴߳�������ͻ�������
+			Socket s=ss.accept();//每次accept接收一个客户端请求，然后下面创建一个线程处理这个客户端请求
 			/*
-			 * �������˱����ܹ����������ϴ�����Ҳ����ûacceptһ���ͻ��˶��󣬾ʹ���һ���߳��������ͻ��˵�����
-			 * web������������ô����(��Ϊtomcat�������ײ����ʹ��SocketServerд��),�����Ϳ���ʵ���ɵ������̴߳����ͻ������󣬴Ӷ�ʵ�ֲ�������
+			 * 服务器端必须能够处理并发上传请求，也就是没accept一个客户端对象，就创建一个线程任务处理客户端的请求，
+			 * web服务器就是这么做的(因为tomcat服务器底层就是使用SocketServer写的),这样就可以实现由单独的线程处理客户端请求，从而实现并发访问
 			 * */
-			new Thread(new UploadImage(s)).start();//UploadImage(s)��Ϊÿ������socket���ӵĿͻ��˴����ĵ��߳����񣬲����ǽ�������֮���socket
+			new Thread(new UploadImage(s)).start();//UploadImage(s)是为每个建立socket连接的客户端创建的的线程任务，参数是建立连接之后的socket
 		}
 		
 -----------------------------------------------------------------------------
-����Ŀͻ��ˣ�
-����� ��IE��
-����ķ���ˣ�
-	��������Tomcat��
+最常见的客户端：
+浏览器 ：IE。
+最常见的服务端：
+	服务器：Tomcat。
 	
-Ϊ���˽���ԭ����
+为了了解其原理：
 
-1��
-�Զ������ˣ�
-ʹ�����еĿͻ���IE���˽�һ�¿ͻ��˸�����˷���ʲô����
+1，
+自定义服务端，
+使用已有的客户端IE，了解一下客户端给服务端发了什么请求？
 
-���͵������ǣ�
+发送的请求是：
 
 
-GET / HTTP/1.1  ������  ����ʽ  /myweb/1.html  �������Դ·��   httpЭ��汾��
-������Ϣͷ . ������������ֵ
+GET / HTTP/1.1  请求行  请求方式  /myweb/1.html  请求的资源路径   http协议版本。
+请求消息头 . 属性名：属性值
 Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, 
 application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, */*
 Accept: */*     
@@ -45,8 +45,8 @@ User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; InfoPath.2)
 Host: 192.168.1.100:9090
 //Host: www.huyouni.com:9090
 Connection: Keep-Alive
-//����
-//�����塣
+//空行
+//请求体。
 
 
 
@@ -55,10 +55,10 @@ Connection: Keep-Alive
 
 
 
-//����˷���Ӧ����Ϣ��
-HTTP/1.1 200 OK   //Ӧ���У�http��Э��汾   Ӧ��״̬��   Ӧ��״̬������Ϣ
+//服务端发回应答消息。
+HTTP/1.1 200 OK   //应答行，http的协议版本   应答状态码   应答状态描述信息
 
-Ӧ����Ϣ������Ϣ�� ������������ֵ
+应答消息属性信息。 属性名：属性值
 Server: Apache-Coyote/1.1
 ETag: W/"199-1323480176984"
 Last-Modified: Sat, 10 Dec 2011 01:22:56 GMT
@@ -66,18 +66,18 @@ Content-Type: text/html
 Content-Length: 199
 Date: Fri, 11 May 2012 07:51:39 GMT
 Connection: close
-//����
-//Ӧ���塣
+//空行
+//应答体。
 <html>
 	<head>
-		<title>�����ҵ���ҳ</title>
+		<title>这是我的网页</title>
 	</head>
 
 	<body>
 
-		<h1>��ӭ����</h1>
+		<h1>欢迎光临</h1>
 
-		<font size='5' color="red">����һ��tomcat�������е���Դ����һ��html��ҳ��</font>
+		<font size='5' color="red">这是一个tomcat服务器中的资源。是一个html网页。</font>
 	</body>
 
 
@@ -86,22 +86,22 @@ Connection: close
 
 
 
-����ṹ��
+网络结构，
 1,C/S  client/server
 	
-	�ص㣺
-		�ýṹ���������ͻ��˺ͷ���˶���Ҫ��д��
-		�ɷ��ɱ��ϸߣ�ά����Ϊ�鷳��
+	特点：
+		该结构的软件，客户端和服务端都需要编写。
+		可发成本较高，维护较为麻烦。
 		
-	�ô���
-		�ͻ����ڱ��ؿ��Էֵ�һ�������㡣
+	好处：
+		客户端在本地可以分担一部分运算。
 
 
 
 
 2,B/S  browser/server
-	�ص㣺
-		�ýṹ��������ֻ�����������ˣ��������ͻ��ˣ���Ϊ�ͻ���ֱ���������ȡ���� 
-		�����ɱ���Եͣ�ά����Ϊ�򵥡�
-	ȱ�㣺�������㶼Ҫ�ڷ������ɡ�
+	特点：
+		该结构的软件，只开发服务器端，不开发客户端，因为客户端直接由浏览器取代。 
+		开发成本相对低，维护更为简单。
+	缺点：所有运算都要在服务端完成。
 		
