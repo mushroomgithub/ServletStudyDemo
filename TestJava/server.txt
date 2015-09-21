@@ -1,1 +1,19 @@
-package cn.lnu.net.udp.example;import java.net.DatagramSocket;import java.net.SocketException;public class ChatTest {	/**	 * Í¨¹ıUDPĞ­Òé	 * Íê³ÉÒ»¸öÁÄÌì³ÌĞò	 * Ò»¸ö¸ºÔğ·¢ËÍÊı¾İµÄÈÎÎñ£¬Ò»¸ö¸ºÔğ½ÓÊÕÊı¾İµÄÈÎÎñ£¬Á½¸öÈÎÎñĞèÒªÍ¬Ê±Ö´ĞĞ	 * ¿ÉÒÔÊ¹ÓÃ¶àÏß³Ì¼¼Êõ	 * @throws SocketException 	 */	public static void main(String[] args) throws SocketException {		// TODO Auto-generated method stub		//1,´´½¨socket·şÎñ		DatagramSocket send=new DatagramSocket(8888);		DatagramSocket recv=new DatagramSocket(10000);		new Thread(new Send(send)).start();		new Thread(new Recv(recv)).start();	}}
+package cn.lnu.net.udp.example;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+public class ChatTest {	
+/**	 * é€šè¿‡UDPåè®®	 
+* å®Œæˆä¸€ä¸ªèŠå¤©ç¨‹åº	 
+* ä¸€ä¸ªè´Ÿè´£å‘é€æ•°æ®çš„ä»»åŠ¡ï¼Œä¸€ä¸ªè´Ÿè´£æ¥æ”¶æ•°æ®çš„ä»»åŠ¡ï¼Œä¸¤ä¸ªä»»åŠ¡éœ€è¦åŒæ—¶æ‰§è¡Œ	 
+* å¯ä»¥ä½¿ç”¨å¤šçº¿ç¨‹æŠ€æœ¯	 
+* @throws SocketException 	 
+*/	
+public static void main(String[] args) throws SocketException {	
+// TODO Auto-generated method stub		
+//1,åˆ›å»ºsocketæœåŠ¡	
+DatagramSocket send=new DatagramSocket(8888);	
+DatagramSocket recv=new DatagramSocket(10000);	
+new Thread(new Send(send)).start();		
+new Thread(new Recv(recv)).start();
+}
+}
